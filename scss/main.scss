@@ -1,0 +1,197 @@
+// IMPORTS
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Roboto:400,500,700');
+@import 'config';
+@import 'menu';
+// body style
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include bg;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  font-family: Montserrat, Roboto, sans-serif;
+  line-height: 1.5;
+}
+// HEADINGS
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+// HEADER
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+// MAIN - targets the content inside the 'main' element
+
+main {
+  padding: 4rem;
+  // height: 100%;
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include ease-out();
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+// ABOUT page Styling
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr);
+  // Grid areas
+  .bio-image {
+    grid-area: bioimage;
+    margin-top: 50px;
+    border-radius: 50%;
+    border: 2px solid $secondary-color;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+  }
+
+  .bio h3 {
+    border-left: 2px solid $secondary-color;
+    padding-left: 10px;
+  }
+
+  .job-1 {
+    grid-area: job1;
+  }
+
+  .job-2 {
+    grid-area: job2;
+  }
+
+  .job-3 {
+    grid-area: job3;
+  }
+
+  .job {
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-top: $secondary-color 5px solid;
+  }
+}
+
+// MY WORK page Styling
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    width: 100%;
+    border: 2px solid #fff;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include ease-out;
+    }
+  }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+//CONTACT PAGE Styling
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px solid #fff;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 2rem;
+    @include ease-out;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background-color: $secondary-color;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
+    }
+  }
+}
+
+// FOOTER STYLE
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  height: 60px;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+}
+//Media Querie`s
+@import 'mobile';
